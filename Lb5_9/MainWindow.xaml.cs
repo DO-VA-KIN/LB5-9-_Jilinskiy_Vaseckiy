@@ -1,18 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Diagnostics;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using Microsoft.Win32;
+using System;
 using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
+
 
 namespace Lb5_9
 {
@@ -21,7 +10,7 @@ namespace Lb5_9
     /// </summary>
     public partial class MainWindow : Window
     {
-        private Calculate Calculate1;
+        private Calculator Calculator1;
 
         public MainWindow()
         {
@@ -29,7 +18,7 @@ namespace Lb5_9
         }
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
-            Calculate1 = new Calculate();
+            Calculator1 = new Calculator();
 
         }
 
@@ -53,23 +42,41 @@ namespace Lb5_9
                     YCount = Convert.ToInt32(sY[2])
                 };
 
-                strX = sX[0] + "; " + sX[1] + "; " + sY[2];
+                strX = sX[0] + "; " + sX[1] + "; " + sX[2];
                 strY = sY[0] + "; " + sY[1] + "; " + sY[2];
 
-                Calculate1.Values.Add(v);
-
-                string newSet = "X: " + strX + "\n" + "Y: " + strY;
-                LBInputSets.Items.Add(newSet);
-                CBSelectSet.Items.Add(newSet);
+                Calculator1.Values.Add(v);
+                LBInputSets.Items.Add("X: " + strX + "\n" + "Y: " + strY);
 
                 TBInputX.Text = "";
                 TBInputY.Text = "";
             }
-            catch (Exception) { MessageBox.Show("Некорректные данные"); }
+            catch { MessageBox.Show("Некорректные данные"); }
 
+        }
+
+        private void BtnLBInputSetsClear_Click(object sender, RoutedEventArgs e)
+        {
+            LBInputSets.Items.Clear();
+            Calculator1.Values.Clear();
+        }
+
+
+        private void BtnCalculate_Click(object sender, RoutedEventArgs e)
+        {
+            Calculator1.Calculate();
         }
 
 
 
+        private void BtnRead_Click(object sender, RoutedEventArgs e)
+        {
+            OpenFileDialog ofd = new OpenFileDialog();
+            ofd.InitialDirectory = Environment.CurrentDirectory;//стартовая директория - директория текущего приложения
+            ofd.Title = "выберите 1 файл";
+            ofd.Filter = "Файл |*cnt64; *dat;";
+            if (ofd.ShowDialog() == true)
+                Calculator1.Read(ofd.FileName);
+        }
     }
 }

@@ -7,66 +7,49 @@
         mc:Ignorable="d"
         Title="Лабораторная работа №5(9)" Height="500" Width="800" Loaded="Window_Loaded">
     <Grid>
-        <TabControl FontSize="14">
-            <TabItem Header="Задание данных">
-                <Grid>
-                    <Grid.RowDefinitions>
-                        <RowDefinition Height="0"/>
-                        <RowDefinition Height="1*" MaxHeight="300"/>
-                        <RowDefinition Height="1*"/>
-                        <RowDefinition Height="50"/>
-                    </Grid.RowDefinitions>
-                    <Grid.ColumnDefinitions>
-                        <ColumnDefinition/>
-                    </Grid.ColumnDefinitions>
 
-                    <GroupBox FontSize="16" Header="Задать данные" ToolTip="Введите значения через ';'" Grid.Row="1" Grid.Column="0" Margin="10,10">
-                        <Grid>
-                            <Grid.RowDefinitions>
-                                <RowDefinition Height="1*"/>
-                                <RowDefinition Height="1*"/>
-                                <RowDefinition Height="1*"/>
-                                <RowDefinition Height="1*"/>
-                            </Grid.RowDefinitions>
-                            <Grid.ColumnDefinitions>
-                                <ColumnDefinition Width="1*"/>
-                                <ColumnDefinition Width="2*"/>
-                                <ColumnDefinition Width="2*"/>
-                                <ColumnDefinition Width="2*"/>
-                                <ColumnDefinition Width="2*"/>
-                            </Grid.ColumnDefinitions>
-                            <Label Content="X:" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Grid.Row="1" Grid.Column="0"/>
-                            <Label Content="Y:" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Grid.Row="3" Grid.Column="0"/>
-                            <Label Content="Начальное; Конечное; Шаг" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Grid.Row="0" Grid.Column="1" Grid.ColumnSpan="3"/>
-                            <Label Content="Начальное; Конечное; Кол-во точек" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Grid.Row="2" Grid.Column="1" Grid.ColumnSpan="3"/>
-                            <Label Content="Функция:" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Grid.Row="0" Grid.Column="4"/>
-                            <TextBox x:Name="TBInputX" Text="1;10;2" VerticalContentAlignment="Center" TextAlignment="Center" Margin="0,0,20,0" Grid.Row="1" Grid.Column="1" Grid.ColumnSpan="3"/>
-                            <TextBox x:Name="TBInputY" Text="1;20;5" VerticalContentAlignment="Center" TextAlignment="Center" Margin="0,0,20,0" Grid.Row="3" Grid.Column="1" Grid.ColumnSpan="3"/>
-                            <Image Source="Images/Func.jpg" Grid.Row="1" Grid.RowSpan="2" Grid.Column="4"/>
-                            <Button x:Name="BtnInput" Content="Добавить" Background="LightBlue" Margin="5,5" Grid.Row="3" Grid.Column="4" Click="BtnInput_Click"/>
-                        </Grid>
-                    </GroupBox>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="1*" MaxHeight="300"/>
+            <RowDefinition Height="1*"/>
+            <RowDefinition Height="50"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
 
-                    <ListBox x:Name="LBInputSets" FontSize="14" Grid.Row="2" Margin="10,0"/>
-                    <Button x:Name="BtnLBInputSetsClear" Content="Очистить" Background="LightBlue" Margin="10,10" Grid.Row="3"/>
+        <GroupBox FontSize="16" Header="Задать данные" ToolTip="Введите значения через ';'" Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="3" Margin="10,10">
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="1*"/>
+                    <RowDefinition Height="1*"/>
+                    <RowDefinition Height="1*"/>
+                    <RowDefinition Height="1*"/>
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="1*"/>
+                    <ColumnDefinition Width="2*"/>
+                    <ColumnDefinition Width="2*"/>
+                    <ColumnDefinition Width="2*"/>
+                    <ColumnDefinition Width="2*"/>
+                </Grid.ColumnDefinitions>
+                <Label Content="X:" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Grid.Row="1" Grid.Column="0"/>
+                <Label Content="Y:" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Grid.Row="3" Grid.Column="0"/>
+                <Label Content="Начальное; Конечное; Шаг" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Grid.Row="0" Grid.Column="1" Grid.ColumnSpan="3"/>
+                <Label Content="Начальное; Конечное; Кол-во точек" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Grid.Row="2" Grid.Column="1" Grid.ColumnSpan="3"/>
+                <Label Content="Функция:" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Grid.Row="0" Grid.Column="4"/>
+                <TextBox x:Name="TBInputX" Text="1;10;2" VerticalContentAlignment="Center" TextAlignment="Center" Margin="0,0,20,0" Grid.Row="1" Grid.Column="1" Grid.ColumnSpan="3"/>
+                <TextBox x:Name="TBInputY" Text="1;20;5" VerticalContentAlignment="Center" TextAlignment="Center" Margin="0,0,20,0" Grid.Row="3" Grid.Column="1" Grid.ColumnSpan="3"/>
+                <Image Source="Images/Func.jpg" Grid.Row="1" Grid.RowSpan="2" Grid.Column="4"/>
+                <Button x:Name="BtnInput" Content="Добавить" Background="LightBlue" Margin="5,5" Grid.Row="3" Grid.Column="4" Click="BtnInput_Click"/>
+            </Grid>
+        </GroupBox>
 
-                </Grid>
-            </TabItem>
-            <TabItem Header="Расчёт">
-                <Grid>
-                    <Grid.RowDefinitions>
-                        <RowDefinition Height="70"/>
-                        <RowDefinition Height="1*"/>
-                    </Grid.RowDefinitions>
-                    <Grid.ColumnDefinitions>
-                        <ColumnDefinition/>
-                        <ColumnDefinition/>
-                    </Grid.ColumnDefinitions>
+        <ListBox x:Name="LBInputSets" FontSize="14" Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="3" Margin="10,0"/>
+        <Button x:Name="BtnLBInputSetsClear" FontSize="15" Content="Очистить" Background="LightBlue" Margin="50,10" Grid.Row="3" Grid.Column="0" Click="BtnLBInputSetsClear_Click"/>
+        <Button x:Name="BtnRead" FontSize="15" Content="Модуль считывания" Background="LightBlue" Margin="50,10" Grid.Row="3" Grid.Column="1" Click="BtnRead_Click"/>
+        <Button x:Name="BtnCalculate" FontSize="15" Content="Рассчитать" Background="Lime" Margin="50,10" Grid.Row="3" Grid.Column="2" Click="BtnCalculate_Click"/>
 
-                    <ComboBox x:Name="CBSelectSet" FontSize="15" Margin="20,10" Grid.Column="0" Grid.Row="0"/>
-                    <Button x:Name="BtnCalculate" Content="Рассчитать" FontSize="18" Margin="20,10" Grid.Column="1" Grid.Row="0"/>
-                </Grid>
-            </TabItem>
-        </TabControl>
     </Grid>
 </Window>
